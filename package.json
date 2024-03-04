@@ -1,0 +1,21 @@
+{
+  "name": "smart-pac",
+  "module": "index.ts",
+  "version": "1.0.0",
+  "description": "A smart pac",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "bun --watch run src/index.ts",
+    "build": "bun build src/index.ts --outdir ./build --target bun",
+    "start": "bun ./build/index.js",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {},
+  "type": "module"
+}
