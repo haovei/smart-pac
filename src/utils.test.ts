@@ -1,7 +1,8 @@
 import { expect, describe, it } from 'bun:test';
 import { hostMatch, FindProxyForURL, setConfig } from './utils';
+import type { HostConfig } from './types';
 
-const hostConfig = {
+const hostConfig: HostConfig = {
   hosts: [
     { id: 1, host: 'proxy.example.com', port: 8080, type: 'SOCKS' },
     { id: 2, host: 'proxy2.example.com', port: 8081, type: 'HTTP' },
@@ -83,6 +84,13 @@ describe('FindProxyForURL', () => {
     const host = 'www.google.com';
     const result = FindProxyForURL(url, host);
     expect(result).toBe('SOCKS proxy.example.com:8080;DIRECT');
+  });
+
+  it('代理分流', () => {
+    const url = 'https://a.youtube.com';
+    const host = 'a.youtube.com';
+    const result = FindProxyForURL(url, host);
+    expect(result).toBe('HTTP proxy2.example.com:8081;DIRECT');
   });
 
   it('返回多个代理', () => {
