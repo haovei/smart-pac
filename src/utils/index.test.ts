@@ -1,6 +1,6 @@
 import { expect, describe, it } from 'bun:test';
-import { hostMatch, FindProxyForURL, setConfig } from './utils';
-import type { HostConfig } from './types';
+import { hostMatch, FindProxyForURL, setConfig } from '../utils';
+import type { HostConfig } from '../types';
 
 const hostConfig: HostConfig = {
   hosts: [

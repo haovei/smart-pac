@@ -1,6 +1,7 @@
 import fs from 'fs';
-import type { Host, HostConfig } from './types';
-import { CONFIG_FILE } from './const';
+import type { Host, HostConfig } from '../types';
+import { CONFIG_FILE } from '../const';
+import logger from './logger';
 
 let hostConfig: HostConfig;
 
@@ -22,7 +23,7 @@ export function setConfig(config: HostConfig) {
 export function initConfig() {
   readConfig();
   fs.watchFile(CONFIG_FILE, () => {
-    console.log('Config file changed, reloading...');
+    logger.info('Config file changed, reloading...');
     readConfig();
   });
 }
@@ -35,7 +36,7 @@ export function hostMatch(host: string, rule: string): boolean {
   return host === rule;
 }
 
-export function FindProxyForURL(url, host) {
+export function FindProxyForURL(url: string, host: string) {
   const { hosts, rules } = hostConfig;
 
   let proxy: string[] = [];

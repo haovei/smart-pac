@@ -7,7 +7,7 @@ RUN bun install
 RUN bun run build
 
 FROM base AS runner
-COPY --from=builder /app/build /app/build
+COPY --from=builder /app/dist /app/dist
 COPY --from=builder /app/config /app/config
 COPY --from=builder /app/package.json /app/package.json
 COPY --from=builder /app/bun.lockb /app/bun.lockb

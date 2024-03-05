@@ -6,8 +6,8 @@
   "main": "index.ts",
   "scripts": {
     "dev": "bun --watch run src/index.ts",
-    "build": "bun build src/index.ts --outdir ./build --target bun",
-    "start": "bun ./build/index.js",
+    "build": "bun ./scripts/build.js",
+    "start": "bun ./dist/index.js",
     "test": "bun test"
   },
   "devDependencies": {
@@ -16,6 +16,8 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "log4js": "^6.9.1"
+  },
   "type": "module"
 }

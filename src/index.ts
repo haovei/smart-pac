@@ -1,4 +1,5 @@
 import { generatePac, initConfig } from './utils';
+import logger from './utils/logger';
 
 initConfig();
 
@@ -15,4 +16,4 @@ const server = Bun.serve({
   },
 });
 
-console.log(`Listening on http://localhost:${server.port} ...`);
+logger.info(`Listening on http://localhost:${server.port} ...`);
