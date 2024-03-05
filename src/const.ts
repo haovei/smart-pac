@@ -1,3 +1,7 @@
-import path from 'path';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
-export const CONFIG_FILE = process.env.CONFIG_FILE ?? path.join(import.meta.dir, '../config/host.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export const CONFIG_FILE = process.env.CONFIG_FILE ?? join(__dirname, '../config/host.json');
