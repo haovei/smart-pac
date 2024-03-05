@@ -1,19 +1,10 @@
 import { generatePac, initConfig } from './utils';
-import logger from './utils/logger';
+import { Hono } from 'hono';
 
 initConfig();
 
-const server = Bun.serve({
-  fetch(req) {
-    const url = new URL(req.url);
-    if (url.pathname === '/') {
-      return new Response('Hello');
-    }
-    if (url.pathname === '/auto.pac') {
-      return new Response(generatePac());
-    }
-    return new Response('404!');
-  },
-});
+const app = new Hono();
+app.get('/', (c) => c.text('Hello!'));
+app.get('/auto.pac', (c) => c.text(generatePac()));
 
-logger.info(`Listening on http://localhost:${server.port} ...`);
+export default app;
