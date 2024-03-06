@@ -15,20 +15,19 @@ export const addOrUpdateHost = (host: {
 	type: string;
 }) => {
 	const { hostConfig } = context;
-	console.log(host)
-	if (host.id) {
+	let id = host.id;
+	if (id) {
 		// 修改 host
-		const index = hostConfig.hosts.findIndex((item) => item.id === host.id);
+		const index = hostConfig.hosts.findIndex((item) => item.id === id);
 		if (index > -1) {
-			hostConfig.hosts[index] = { id: host.id, ...host };
+			hostConfig.hosts[index] = { id, ...host };
 		}
 	} else {
-		// 增加 host
-		const id =
-			hostConfig.hosts.length > 0 ? hostConfig.hosts[hostConfig.hosts.length - 1].id + 1 : 1;
+		id = hostConfig.hosts.length > 0 ? hostConfig.hosts[hostConfig.hosts.length - 1].id + 1 : 1;
 		hostConfig.hosts.push({ id, ...host });
 	}
 	writeConfig(hostConfig);
+	return id;
 };
 
 // 删除 host

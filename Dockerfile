@@ -1,6 +1,5 @@
 FROM oven/bun:1 AS base
 LABEL maintainer="haovei@gmail.com"
-LABEL github="https://github.com/haovei/smart-pac"
 
 WORKDIR /app
 

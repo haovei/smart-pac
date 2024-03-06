@@ -5,7 +5,6 @@
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/haovei/smart-pac/docker.yml)
 ![Docker Pulls](https://img.shields.io/docker/pulls/qutea/smart-pac)
 
-
 Smart proxy auto configuration (pac)
 
 一个轻量，快速的 PAC 代理配置服务。只需要一处配置，多个设备上自动生效。
@@ -38,3 +37,35 @@ docker run -it -p 3000:3000 -v ./config/host.json:/app/config/host.json qutea/sm
 - `GET /api/ruleList` 获取代理规则列表
 - `POST /api/updateRule` 添加/修改代理规则, 参数 `[string, number[]]`
 - `POST /api/deleteRule` 删除代理规则，参数 `{rule: string}`
+
+## 环境变量
+
+- `PORT` 服务端口，默认 3000
+- `CONFIG_FILE` 配置文件路径，默认 `./config/host.json`
+- `ACCESS_TOKEN` 访问服务的 token，默认为空。设置后需要在请求头中添加 `Authorization: Bearer ${ACCESS_TOKEN}`
+
+## 配置文件实例
+
+```json
+{
+	"hosts": [{ "id": 1, "host": "1.example.com", "port": 8080, "type": "HTTP" }],
+	"rules": [
+		["*.google.com", [1]],
+		["*.google.com.hk", [1]],
+		["*.github.com", [1]],
+		["*.githubusercontent.com", [1]],
+		["*.googleapis.com", [1]],
+		["*.gstatic.com", [1]],
+		["*.ggpht.com", [1]],
+		["*.googlevideo.com", [1]],
+		["*.googleusercontent.com", [1]],
+		["*.youtu.be", [1]],
+		["*.youtube.com", [1]],
+		["*.ytimg.com", [1]],
+		["*.twitter.com", [1]],
+		["*.twimg.com", [1]],
+		["*.facebook.com", [1]],
+		["*.wikipedia.org", [1]]
+	]
+}
+```

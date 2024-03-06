@@ -1,7 +1,9 @@
-import { generatePac, initConfig } from './utils';
 import { Hono } from 'hono';
+import { bearerAuth } from 'hono/bearer-auth';
+import { generatePac, initConfig } from './utils';
 import logger from './utils/logger';
 import { listHosts, listRules, addOrUpdateHost, delHost, addOrUpdateRule, delRule } from './api';
+import { ACCESS_TOKEN, PORT } from './const';
 
 initConfig();
 
@@ -11,6 +13,10 @@ app.get('/auto.pac', (c) => {
 	c.header('Content-Type', 'application/x-ns-proxy-autoconfig');
 	return c.body(generatePac());
 });
+
+if (ACCESS_TOKEN) {
+	app.use('/api/*', bearerAuth({ token: ACCESS_TOKEN }));
+}
 
 app.get('/api/hostList', (c) => c.json(listHosts()));
 app.post('/api/updateHost', async (c) => {
@@ -36,6 +42,9 @@ app.post('/api/deleteRule', async (c) => {
 	return c.json({ success: true });
 });
 
-logger.info(`Server started at http://localhost:3000`);
+logger.info(`Server started at http://localhost:${PORT}`);
 
-export default app;
+export default {
+	port: PORT,
+	fetch: app.fetch,
+};
