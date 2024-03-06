@@ -1,5 +1,9 @@
 # Smart PAC
 
+![GitHub license](https://img.shields.io/github/license/haovei/smart-pac.svg)
+![GitHub issues](https://img.shields.io/github/issues/haovei/smart-pac.svg)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/haovei/smart-pac/docker.yml)
+
 Smart proxy auto configuration (pac)
 
 一个轻量，快速的 PAC 代理配置服务。只需要一处配置，多个设备上自动生效。
