@@ -17,7 +17,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "hono": "^4.0.9",
+    "hono": "^4.0.10",
     "log4js": "^6.9.1"
   },
   "type": "module"

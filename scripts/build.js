@@ -1,6 +1,6 @@
 await Bun.build({
   entrypoints: ['./src/platform/index.ts'],
   outdir: './dist',
-  target: 'node',
+  target: 'bun',
   external: ['log4js', 'hono'],
 });
