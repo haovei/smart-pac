@@ -6,7 +6,7 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/qutea/smart-pac)
 
 
-Smart proxy auto configuration (pac)
+Smart proxy auto configuration (PAC)
 
 一个轻量，快速的 PAC 代理配置服务。只需要一处配置，多个设备上自动生效。
 
