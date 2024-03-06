@@ -1,0 +1,24 @@
+name: Generate Changelog
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Generate changelog
+        uses: heinrichreimer/action-github-changelog-generator@v2.4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: 'Print changelog to console'
+        run: cat CHANGELOG.md
+      - name: 'Upload changelog'
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'Changelog'
+          path: CHANGELOG.md
