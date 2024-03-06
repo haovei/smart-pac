@@ -3,7 +3,8 @@
 ![GitHub license](https://img.shields.io/github/license/haovei/smart-pac.svg)
 ![GitHub issues](https://img.shields.io/github/issues/haovei/smart-pac.svg)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/haovei/smart-pac/docker.yml)
-[![codecov](https://codecov.io/gh/haovei/smart-pac/graph/badge.svg?token=HFWL5KK1E4)](https://codecov.io/gh/haovei/smart-pac)
+![Docker Pulls](https://img.shields.io/docker/pulls/qutea/smart-pac)
+
 
 Smart proxy auto configuration (pac)
 
