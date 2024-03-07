@@ -8,10 +8,12 @@
 		"dev": "bun --watch run src/platform/index.ts",
 		"build": "bun ./scripts/build.ts",
 		"start": "bun ./dist/index.js",
+		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
 		"test": "bun test"
 	},
 	"devDependencies": {
-		"@types/bun": "latest"
+		"@types/bun": "latest",
+		"conventional-changelog-cli": "^4.1.0"
 	},
 	"peerDependencies": {
 		"typescript": "^5.0.0"
