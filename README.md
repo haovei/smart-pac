@@ -7,44 +7,44 @@
 
 Smart proxy auto configuration (PAC)
 
-一个轻量，快速的 PAC 代理配置服务。只需要一处配置，多个设备上自动生效。
+A lightweight, fast PAC proxy configuration service. Only need to configure once, it will take effect on multiple devices automatically.
 
-## 功能
+## Features
 
-- 支持 http、socks 代理
-- 支持配置域名代理
-- 支持代理分流。根据域名自动分流到不同代理，省去配置麻烦
+- Support http, socks proxy
+- Support configuring domain proxy
+- Support proxy shunting. Automatically shunt to different proxies according to the domain name, saving the trouble of configuration
 
-## 使用
+## Usage
 
-使用 docker 运行，支持 amd64、arm64
+Run with docker, support amd64, arm64
 
 ```bash
 docker run -it -p 3000:3000 -v ./config/host.json:/app/config/host.json qutea/smart-pac
 ```
 
-启动服务后，即可访问 `http://localhost:3000/auto.pac` 获取 pac 配置文件，将该文件配置到浏览器或系统代理设置中即可。
+After starting the service, you can access `http://localhost:3000/auto.pac` to get the pac configuration file, and configure this file in the browser or system proxy settings.
 
-- 服务内部端口 3000
-- 需要将外部配置文件映射到容器内部。防止容器重启后配置丢失
+- The internal port of the service is 3000
+- It is necessary to map the external configuration file to the inside of the container. Prevent the configuration from being lost after the container restarts
 
-## 服务 API
+## Service API
 
-- `GET /auto.pac` 获取 pac 文件
-- `GET /api/hostList` 获取代理 host 列表
-- `POST /api/updateHost` 添加/修改代理 host，参数 `{id: number, host: string, port: number, type: string}`
-- `POST /api/deleteHost` 删除代理 host, 参数 `{id: number}`
-- `GET /api/ruleList` 获取代理规则列表
-- `POST /api/updateRule` 添加/修改代理规则, 参数 `[string, number[]]`
-- `POST /api/deleteRule` 删除代理规则，参数 `{rule: string}`
+- `GET /auto.pac` Get pac file
+- `GET /api/hostList` Get proxy host list
+- `POST /api/updateHost` Add/modify proxy host, parameters `{id: number, host: string, port: number, type: string}`
+- `POST /api/deleteHost` Delete proxy host, parameters `{id: number}`
+- `GET /api/ruleList` Get proxy rule list
+- `POST /api/updateRule` Add/modify proxy rule, parameters `[string, number[]]`
+- `POST /api/deleteRule` Delete proxy rule, parameters `{rule: string}`
 
-## 环境变量
+## Environment Variables
 
-- `PORT` 服务端口，默认 3000
-- `CONFIG_FILE` 配置文件路径，默认 `./config/host.json`
-- `ACCESS_TOKEN` 访问服务的 token，默认为空。设置后需要在请求头中添加 `Authorization: Bearer ${ACCESS_TOKEN}`
+- `PORT` Service port, default 3000
+- `CONFIG_FILE` Configuration file path, default `./config/host.json`
+- `ACCESS_TOKEN` Access token for the service, default is empty. After setting, you need to add `Authorization: Bearer ${ACCESS_TOKEN}`
 
-## 配置文件实例
+## Configuration File Example
 
 ```json
 {

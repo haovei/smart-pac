@@ -1,26 +1,26 @@
 {
-	"name": "smart-pac",
-	"module": "index.ts",
-	"version": "1.0.0",
-	"description": "A smart pac",
-	"main": "index.ts",
-	"scripts": {
-		"dev": "bun --watch run src/platform/index.ts",
-		"build": "bun ./scripts/build.ts",
-		"start": "bun ./dist/index.js",
-		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-		"test": "bun test"
-	},
-	"devDependencies": {
-		"@types/bun": "latest",
-		"conventional-changelog-cli": "^4.1.0"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
-	},
-	"dependencies": {
-		"hono": "^4.0.10",
-		"log4js": "^6.9.1"
-	},
-	"type": "module"
+  "name": "smart-pac",
+  "module": "index.ts",
+  "version": "1.0.0",
+  "description": "A smart pac",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "bun --watch run src/platform/index.ts",
+    "build": "bun ./scripts/build.ts",
+    "start": "bun ./dist/index.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "conventional-changelog-cli": "^4.1.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "hono": "^4.0.10",
+    "log4js": "^6.9.1"
+  },
+  "type": "module"
 }
