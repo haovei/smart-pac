@@ -50,24 +50,24 @@ docker run -it -p 3000:3000 -v ./config/host.json:/app/config/host.json qutea/sm
 
 ```json
 {
-	"hosts": [{ "id": 1, "host": "1.example.com", "port": 8080, "type": "HTTP" }],
-	"rules": [
-		["*.google.com", [1]],
-		["*.google.com.hk", [1]],
-		["*.github.com", [1]],
-		["*.githubusercontent.com", [1]],
-		["*.googleapis.com", [1]],
-		["*.gstatic.com", [1]],
-		["*.ggpht.com", [1]],
-		["*.googlevideo.com", [1]],
-		["*.googleusercontent.com", [1]],
-		["*.youtu.be", [1]],
-		["*.youtube.com", [1]],
-		["*.ytimg.com", [1]],
-		["*.twitter.com", [1]],
-		["*.twimg.com", [1]],
-		["*.facebook.com", [1]],
-		["*.wikipedia.org", [1]]
-	]
+  "hosts": [{ "id": 1, "host": "1.example.com", "port": 8080, "type": "HTTP" }],
+  "rules": [
+    ["*.google.com", [1]],
+    ["*.google.com.hk", [1]],
+    ["*.github.com", [1]],
+    ["*.githubusercontent.com", [1]],
+    ["*.googleapis.com", [1]],
+    ["*.gstatic.com", [1]],
+    ["*.ggpht.com", [1]],
+    ["*.googlevideo.com", [1]],
+    ["*.googleusercontent.com", [1]],
+    ["*.youtu.be", [1]],
+    ["*.youtube.com", [1]],
+    ["*.ytimg.com", [1]],
+    ["*.twitter.com", [1]],
+    ["*.twimg.com", [1]],
+    ["*.facebook.com", [1]],
+    ["*.wikipedia.org", [1]]
+  ]
 }
 ```
