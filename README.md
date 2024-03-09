@@ -9,6 +9,8 @@ Smart proxy auto configuration (PAC)
 
 A lightweight, fast PAC proxy configuration service. Only need to configure once, it will take effect on multiple devices automatically.
 
+English | [中文](README.zh-CN.md)
+
 ## Features
 
 - Support http, socks proxy
