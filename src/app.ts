@@ -16,7 +16,7 @@ app.use(async (c, next) => {
     await next();
 });
 
-app.use('/*', serveStatic({ root: './web/' }));
+app.use('/*', serveStatic({ root: './public/' }));
 
 app.get('/auto.pac', (c) => {
     c.header('Content-Type', 'application/x-ns-proxy-autoconfig');
