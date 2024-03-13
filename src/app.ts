@@ -10,8 +10,13 @@ import { ACCESS_TOKEN, PORT } from './const';
 initConfig();
 
 const app = new Hono();
-// app.get('/', (c) => c.text('Hello Smart PAC 😊!'));
-app.use('/*', serveStatic({ root: './web/' }))
+
+app.use(async (c, next) => {
+    logger.info(`${c.req.method} ${c.req.path}`);
+    await next();
+});
+
+app.use('/*', serveStatic({ root: './web/' }));
 
 app.get('/auto.pac', (c) => {
     c.header('Content-Type', 'application/x-ns-proxy-autoconfig');
