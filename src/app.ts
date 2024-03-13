@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import { bearerAuth } from 'hono/bearer-auth';
 import { cors } from 'hono/cors';
+import { serveStatic } from 'hono/bun';
 import { generatePac, initConfig } from './utils';
 import logger from './utils/logger';
 import { listHosts, listRules, addOrUpdateHost, delHost, addOrUpdateRule, delRule } from './api';
@@ -9,7 +10,9 @@ import { ACCESS_TOKEN, PORT } from './const';
 initConfig();
 
 const app = new Hono();
-app.get('/', (c) => c.text('Hello Smart PAC 😊!'));
+// app.get('/', (c) => c.text('Hello Smart PAC 😊!'));
+app.use('/*', serveStatic({ root: './web/' }))
+
 app.get('/auto.pac', (c) => {
     c.header('Content-Type', 'application/x-ns-proxy-autoconfig');
     return c.body(generatePac());
