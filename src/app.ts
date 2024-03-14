@@ -2,6 +2,7 @@ import { Hono } from 'hono';
 import { bearerAuth } from 'hono/bearer-auth';
 import { cors } from 'hono/cors';
 import { serveStatic } from 'hono/bun';
+import { etag } from 'hono/etag';
 import { generatePac, initConfig } from './utils';
 import logger from './utils/logger';
 import { listHosts, listRules, addOrUpdateHost, delHost, addOrUpdateRule, delRule } from './api';
@@ -16,7 +17,7 @@ app.use(async (c, next) => {
     await next();
 });
 
-app.use('/*', serveStatic({ root: './public/' }));
+app.use('/*', etag({ weak: true }), serveStatic({ root: './public/' }));
 
 app.get('/auto.pac', (c) => {
     c.header('Content-Type', 'application/x-ns-proxy-autoconfig');
