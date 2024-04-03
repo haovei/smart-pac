@@ -1,7 +1,7 @@
 {
     "name": "smart-pac",
     "module": "index.ts",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "A lightweight, fast PAC proxy configuration service. Only need to configure once, it will take effect on multiple devices automatically.",
     "main": "index.ts",
     "scripts": {
