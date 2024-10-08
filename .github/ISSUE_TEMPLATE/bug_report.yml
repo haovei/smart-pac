@@ -1,14 +1,14 @@
 name: '🐞 Bug report'
 description: 'Report an issue or possible bug'
-title: '[Bug] Some problem...'
 labels: ['bug']
 
 body:
-  - type: markdown
+  - type: input
+    id: bug-url
     attributes:
-      value: |
-        **Describe the bug**
-        A clear and concise description of what the bug is.
+      label: Bug URL
+      description: URL where the bug occurred
+      placeholder: https://example.com
 
   - type: textarea
     id: describe-the-bug
@@ -16,30 +16,17 @@ body:
       label: Describe the bug
       description: A clear and concise description of what the bug is.
       placeholder: Describe the bug here...
-
-  - type: markdown
-    attributes:
-      value: |
-        **To Reproduce**
-        Steps to reproduce the behavior:
-
-        1. Go to '...'
-        2. Click on '....'
-        3. Scroll down to '....'
-        4. See error
+    validations:
+      required: true
 
   - type: textarea
-    id: to-reproduce
+    id: reproduction
     attributes:
-      label: To Reproduce
+      label: Reproduction
       description: Steps to reproduce the behavior.
       placeholder: Steps to reproduce the behavior...
-
-  - type: markdown
-    attributes:
-      value: |
-        **Expected behavior**
-        A clear and concise description of what you expected to happen.
+    validations:
+      required: true
 
   - type: textarea
     id: expected-behavior
@@ -47,93 +34,32 @@ body:
       label: Expected behavior
       description: A clear and concise description of what you expected to happen.
       placeholder: Describe the expected behavior here...
+    validations:
+      required: true
 
-  - type: markdown
+  - type: checkboxes
+    id: system-info
     attributes:
-      value: |
-        **Screenshots**
-        If applicable, add screenshots to help explain your problem.
+      label: System Information
+      description: Please check the information you can provide.
+      options:
+        - label: Windows
+        - label: MacOS
+        - label: Linux
+        - label: iOS
+        - label: Android
 
-  - type: textarea
-    id: screenshots
+  - type: checkboxes
+    id: browser-info
     attributes:
-      label: Screenshots
-      description: If applicable, add screenshots to help explain your problem.
-      placeholder: Add screenshots here...
-
-  - type: markdown
-    attributes:
-      value: |
-        **Desktop (please complete the following information):**
-
-        - OS: [e.g. iOS]
-        - Browser [e.g. chrome, safari]
-        - Version [e.g. 22]
-
-  - type: input
-    id: desktop-os
-    attributes:
-      label: Desktop OS
-      description: OS (e.g. iOS)
-      placeholder: e.g. iOS
-
-  - type: input
-    id: desktop-browser
-    attributes:
-      label: Desktop Browser
-      description: Browser (e.g. chrome, safari)
-      placeholder: e.g. chrome, safari
-
-  - type: input
-    id: desktop-version
-    attributes:
-      label: Desktop Version
-      description: Version (e.g. 22)
-      placeholder: e.g. 22
-
-  - type: markdown
-    attributes:
-      value: |
-        **Smartphone (please complete the following information):**
-
-        - Device: [e.g. iPhone6]
-        - OS: [e.g. iOS8.1]
-        - Browser [e.g. stock browser, safari]
-        - Version [e.g. 22]
-
-  - type: input
-    id: smartphone-device
-    attributes:
-      label: Smartphone Device
-      description: Device (e.g. iPhone6)
-      placeholder: e.g. iPhone6
-
-  - type: input
-    id: smartphone-os
-    attributes:
-      label: Smartphone OS
-      description: OS (e.g. iOS8.1)
-      placeholder: e.g. iOS8.1
-
-  - type: input
-    id: smartphone-browser
-    attributes:
-      label: Smartphone Browser
-      description: Browser (e.g. stock browser, safari)
-      placeholder: e.g. stock browser, safari
-
-  - type: input
-    id: smartphone-version
-    attributes:
-      label: Smartphone Version
-      description: Version (e.g. 22)
-      placeholder: e.g. 22
-
-  - type: markdown
-    attributes:
-      value: |
-        **Additional context**
-        Add any other context about the problem here.
+      label: Browser Information
+      description: Please check the information you can provide.
+      options:
+        - label: Chrome
+        - label: Firefox
+        - label: Safari
+        - label: Edge
+        - label: Internet Explorer
 
   - type: textarea
     id: additional-context
