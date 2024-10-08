@@ -1,0 +1,143 @@
+name: '🐞 Bug report'
+description: 'Report an issue or possible bug'
+title: '[Bug] Some problem...'
+labels: ['bug']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Describe the bug**
+        A clear and concise description of what the bug is.
+
+  - type: textarea
+    id: describe-the-bug
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the bug here...
+
+  - type: markdown
+    attributes:
+      value: |
+        **To Reproduce**
+        Steps to reproduce the behavior:
+
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+
+  - type: textarea
+    id: to-reproduce
+    attributes:
+      label: To Reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: Steps to reproduce the behavior...
+
+  - type: markdown
+    attributes:
+      value: |
+        **Expected behavior**
+        A clear and concise description of what you expected to happen.
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: Describe the expected behavior here...
+
+  - type: markdown
+    attributes:
+      value: |
+        **Screenshots**
+        If applicable, add screenshots to help explain your problem.
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
+      placeholder: Add screenshots here...
+
+  - type: markdown
+    attributes:
+      value: |
+        **Desktop (please complete the following information):**
+
+        - OS: [e.g. iOS]
+        - Browser [e.g. chrome, safari]
+        - Version [e.g. 22]
+
+  - type: input
+    id: desktop-os
+    attributes:
+      label: Desktop OS
+      description: OS (e.g. iOS)
+      placeholder: e.g. iOS
+
+  - type: input
+    id: desktop-browser
+    attributes:
+      label: Desktop Browser
+      description: Browser (e.g. chrome, safari)
+      placeholder: e.g. chrome, safari
+
+  - type: input
+    id: desktop-version
+    attributes:
+      label: Desktop Version
+      description: Version (e.g. 22)
+      placeholder: e.g. 22
+
+  - type: markdown
+    attributes:
+      value: |
+        **Smartphone (please complete the following information):**
+
+        - Device: [e.g. iPhone6]
+        - OS: [e.g. iOS8.1]
+        - Browser [e.g. stock browser, safari]
+        - Version [e.g. 22]
+
+  - type: input
+    id: smartphone-device
+    attributes:
+      label: Smartphone Device
+      description: Device (e.g. iPhone6)
+      placeholder: e.g. iPhone6
+
+  - type: input
+    id: smartphone-os
+    attributes:
+      label: Smartphone OS
+      description: OS (e.g. iOS8.1)
+      placeholder: e.g. iOS8.1
+
+  - type: input
+    id: smartphone-browser
+    attributes:
+      label: Smartphone Browser
+      description: Browser (e.g. stock browser, safari)
+      placeholder: e.g. stock browser, safari
+
+  - type: input
+    id: smartphone-version
+    attributes:
+      label: Smartphone Version
+      description: Version (e.g. 22)
+      placeholder: e.g. 22
+
+  - type: markdown
+    attributes:
+      value: |
+        **Additional context**
+        Add any other context about the problem here.
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.
+      placeholder: Add additional context here...
